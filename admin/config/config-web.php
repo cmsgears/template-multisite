@@ -41,9 +41,7 @@ return [
 				// regular request rule - 2nd rule
 	        	'<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
 	        	// direct actions - 2nd rule
-	        	'<action:(login|logout|dashboard)>' => 'cmgcore/site/<action>',
-	        	// required for strict parsing
-	        	'/' => 'cmgcore/site/index' 
+	        	'<action:(login|logout|dashboard)>' => 'cmgcore/site/<action>'
 	        ]
 		],
         'cmgCore' => [
