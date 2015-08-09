@@ -28,27 +28,40 @@ return [
         ],
         'urlManager' => [
 	        'rules' => [
-	        	// apix request rules --------------------------
-	        	'apix/<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/apix/<controller>/<action>',
-	        	'apix/<controller:\w+>/<action:[\w\-]+>' => 'cmgcore/apix/<controller>/<action>',
+	        	// APIX - Sub-Directory based multisite rules ************* - custom + 4th rule
+	        	'<site:\w+>/apix/<action:(login|register)>' => '<site>/cmgcore/apix/site/<action>',
+	        	'<site:\w+>/apix/<action:(contact)>' => '<site>/cmgforms/apix/site/<action>',
+	        	'<site:\w+>/apix/<controller:(user|file)>/<action:[\w\-]+>' => '<site>/cmgcore/apix/<controller>/<action>',
+	        	'<site:\w+>/apix/<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<site>/<module>/apix/<controller>/<action>',
+				// APIX - Sub-Domain based multisite rules **************** - 4th rule
+	        	'apix/<controller:(user|file)>/<action:[\w\-]+>' => 'cmgcore/apix/<controller>/<action>',
 	        	'apix/<action:(login|register)>' => 'cmgcore/apix/site/<action>',
 	        	'apix/<action:(contact)>' => 'cmgforms/apix/site/<action>',
-				// regular request rules -----------------------
-	        	'<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
-	        	// Blog Posts
-	        	'post/<slug:[\w\-]+>' => 'cmgcms/site/post',
-	        	// Core Module Pages
-	        	'<controller:\w+>/<action:[\w\-]+>' => 'cmgcore/<controller>/<action>',
-	        	// Standard Pages
+	        	'apix/<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/apix/<controller>/<action>',
+	        	// Regular - Sub-Directory based multisite rules ********** - custom + 2nd rule
+	        	'<site:\w+>/<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<site>/<module>/<controller>/<action>',
+	        	// cms posts
+	        	'<site:\w+>/post/<slug:[\w\-]+>' => '<site>/cmgcms/site/post',
+				// direct actions - custom + 2nd rule
+	        	'<site:\w+>/<action:(home)>' => '<site>/cmgcore/user/<action>',
+	        	'<site:\w+>/<action:(contact|feedback)>' => '<site>/cmgforms/site/<action>',
+	        	'<site:\w+>/<action:(login|logout|register|forgot-password|reset-password|activate-account|confirm-account)>' => '<site>/cmgcore/site/<action>',
+				// regular - cms posts
+				'post/<slug:[\w\-]+>' => 'cmgcms/site/post',
+				// cms pages
+				'<site:\w+>/<slug:[\w\-]+>' => '<site>/cmgcms/site/index',
+				// Regular - Sub-Domain based multisite rules ************* - 2nd rule
+				'<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
+	        	// direct actions - 2nd rule
 	        	'<action:(home)>' => 'cmgcore/user/<action>',
-	        	'<action:(login|logout|register|forgot-password|reset-password|activate-account|confirm-account)>' => 'cmgcore/site/<action>',
 	        	'<action:(contact|feedback)>' => 'cmgforms/site/<action>',
-	        	// CMS Pages
-	        	'<slug:[\w\-]+>' => 'cmgcms/site/index'
+	        	'<action:(login|logout|register|forgot-password|reset-password|activate-account|confirm-account)>' => 'cmgcore/site/<action>',
+	        	// cms pages
+	        	'<slug:[\w\-]+>' => 'cmgcms/site/index',
 	        ]
 		],
         'cmgCore' => [
-        	'loginRedirectPage' => '/user/home'
+        	'loginRedirectPage' => '/cmgcore/user/home'
         ]
     ],
     'params' => $params

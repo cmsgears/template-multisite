@@ -28,29 +28,33 @@ return [
         ],
         'urlManager' => [
 	        'rules' => [
-	        	// Sub-Directory based multisite rules -------------
-	        	// apix request rules - custom + 4th rule
+	        	// APIX - Sub-Directory based multisite rules ************* - custom + 4th rule
+	        	'<site:\w+>/apix/<controller:(user|file)>/<action:[\w\-]+>' => '<site>/cmgcore/apix/<controller>/<action>',
 	        	'<site:\w+>/apix/<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<site>/<module>/apix/<controller>/<action>',
-	        	// regular request rule - custom + 2nd rule
+				// APIX - Sub-Domain based multisite rules **************** - 4th rule
+	        	'apix/<controller:(user|file)>/<action:[\w\-]+>' => 'cmgcore/apix/<controller>/<action>',
+	        	'apix/<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/apix/<controller>/<action>',
+	        	// Regular - Sub-Directory based multisite rules ********** - custom + 2nd rule
 	        	'<site:\w+>/<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<site>/<module>/<controller>/<action>',
 	        	// direct actions - custom + 2nd rule
 	        	'<site:\w+>/<action:(login|logout|dashboard)>' => '<site>/cmgcore/site/<action>',
-				// Sub-Domain based multisite rules ----------------
-	        	// apix request rules - 4th rule
-	        	'apix/<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/apix/<controller>/<action>',
-				// regular request rule - 2nd rule
+				// Regular - Sub-Domain based multisite rules ************* - 2nd rule
 	        	'<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
 	        	// direct actions - 2nd rule
-	        	'<action:(login|logout|dashboard)>' => 'cmgcore/site/<action>'
+	        	'<action:(login|logout|dashboard)>' => 'cmgcore/site/<action>',
+	        	'<site:\w+>' => '<site>/cmgcore/site/index'
 	        ]
 		],
         'cmgCore' => [
         	'loginRedirectPage' => '/dashboard',
-        	'logoutRedirectPage' => '/login',
-        	'editorClass' => 'cmsgears\widgets\cleditor\ClEditor',
+        	'logoutRedirectPage' => '/login'
         ],
         'sidebar' => [
         	'class' => 'cmsgears\core\admin\components\Sidebar',
+        	'modules' => [ 'cmgcms', 'cmgcore' ]
+        ],
+        'dashboard' => [
+        	'class' => 'cmsgears\core\admin\components\Dashboard',
         	'modules' => [ 'cmgcms', 'cmgcore' ]
         ]
     ],

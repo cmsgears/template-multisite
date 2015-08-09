@@ -1,16 +1,16 @@
 {
 	"name": "cmsgears/template-multisite",
-	"description": "The multisite template having default theme set to multisite.",
+	"description": "The multisite template uses core, cms and dynamic form modules from CMSGears. It needs multisite theme for website and admin theme for admin.",
 	"homepage": "http://www.cmsgears.org", 
 	"type": "project",
 	"keywords": [ "yii2", "cmsgears", "template", "multisite" ],
 	"license": "GPLv3",
 	"support": {
         "source": "http://www.cmsgears.com/templates/multisite/downloads",
-		"forum": "http://forum.cmsgears.org/",
-		"resources": "http://resources.cmsgears.org/",
-		"issues": "https://www.amazingdesk.com/cmsgears/issues/",
-		"blog": "http://cmsgears.tutorials24x7.com/"
+		"forum": "http://forum.cmsgears.org",
+		"resources": "http://www.cmsgears.org",
+		"issues": "https://www.amazingdesk.com/cmsgears/issues",
+		"blog": "http://cmsgears.tutorials24x7.com"
 	},
 	"minimum-stability": "stable",
     "repositories": [
@@ -65,8 +65,8 @@
 		
     ],
     "require": {
-        "yiisoft/yii2": "2.0.4",
-        "yiisoft/yii2-swiftmailer": "2.0.4",
+        "yiisoft/yii2": "2.0.6",
+        "yiisoft/yii2-swiftmailer": "2.0.*",
 		"cmsgears/module-core": "dev-dev",
 		"cmsgears/module-forms": "dev-dev",
 		"cmsgears/module-cms": "dev-dev",

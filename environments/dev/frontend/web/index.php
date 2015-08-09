@@ -13,6 +13,6 @@ $config = yii\helpers\ArrayHelper::merge(
     require( __DIR__ . '/../config/config-env.php' )
 );
 
-$application = new \common\multisite\Application( $config );
+$application = new \cmsgears\core\common\multisite\Application( $config );
 $application->run();
 ?>

@@ -38,6 +38,7 @@ return [
         ],
         'cmgCore' => [
         	'class' => 'cmsgears\core\common\components\Core',
+        	'editorClass' => 'cmsgears\widgets\cleditor\ClEditor',
         	'multiSite' => true
         ],
         'cmgCoreMessage' => [
