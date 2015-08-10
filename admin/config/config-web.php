@@ -42,7 +42,8 @@ return [
 	        	'<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
 	        	// direct actions - 2nd rule
 	        	'<action:(login|logout|dashboard)>' => 'cmgcore/site/<action>',
-	        	'<site:\w+>' => '<site>/cmgcore/site/index'
+	        	'<site:\w+>' => '<site>/cmgcore/site/index',
+	        	'<site:\w+><action:(/)>' => '<site>/cmgcore/site/index'
 	        ]
 		],
         'cmgCore' => [
