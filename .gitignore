@@ -42,11 +42,11 @@ themes/admin/resources/styles/scss/.sass-cache/
 themes/adminchild/deploy/.sass-cache/
 themes/adminchild/deploy/node_modules/
 
-themes/blog/.sass-cache/
-themes/blog/resources/.sass-cache/
-themes/blog/resources/styles/.sass-cache/
-themes/blog/resources/styles/scss/.sass-cache/
-themes/blog/deploy/node_modules/
+themes/multisite/.sass-cache/
+themes/multisite/resources/.sass-cache/
+themes/multisite/resources/styles/.sass-cache/
+themes/multisite/resources/styles/scss/.sass-cache/
+themes/multisite/deploy/node_modules/
 
 # uploads
 uploads/

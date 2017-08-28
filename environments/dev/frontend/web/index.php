@@ -17,4 +17,3 @@ $config = yii\helpers\ArrayHelper::merge(
 $application = new \cmsgears\core\common\base\Application( $config );
 
 $application->run();
-

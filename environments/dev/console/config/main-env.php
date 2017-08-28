@@ -6,19 +6,9 @@ return [
 		'gii' => 'yii\gii\Module'
 	],
 	'components' => [
-        'log' => [
-            'targets' => [
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => [ 'error', 'warning', 'info' ],
-					// 'categories' => [ 'cmsgears\*', 'console\*', '<project>\*' ]
-                    'categories' => [ 'cmsgears\*', 'console\*' ]
-                ]
-            ]
-        ],
 		'urlManager' => [
 			'class' => 'yii\web\UrlManager',
-			'baseUrl' => 'http://localhost/cmgdemoblog/frontend/web'
+			'baseUrl' => 'http://localhost/cmgdemomultisite/frontend/web'
 		],
 		// CMG Modules - Core
 		'migration' => [
@@ -29,9 +19,9 @@ return [
 			'siteTitle' => 'CMSGears Demo',
 			'siteMaster' => 'demomaster',
 			'primaryDomain' => 'cmsgears.com',
-			'defaultSite' => 'http://localhost/cmgdemoblog/frontend/web',
-			'defaultAdmin' => 'http://localhost/cmgdemoblog/backend/web',
-			'uploadsUrl' => 'http://localhost/cmgdemoblog/uploads'
+			'defaultSite' => 'http://localhost/cmgdemomultisite/frontend/web',
+			'defaultAdmin' => 'http://localhost/cmgdemomultisite/backend/web',
+			'uploadsUrl' => 'http://localhost/cmgdemomultisite/uploads'
 		]
 	]
 ];
