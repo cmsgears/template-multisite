@@ -1,4 +1,4 @@
-Project 	- CMSGears (http://www.cmsgears.org)
+Project 	- CMSGears (https://www.cmsgears.org)
 
 Template  	- MultiSite
 
@@ -42,8 +42,8 @@ It also provide DB configuration having required test data. The uploads director
 
 Template Demo
 =========================================
-1. Frontend - http://demo.cmsgears.com/templates/multisite (demouser@cmsgears.com, test#123)
-2. Admin - http://demo.cmsgears.com/templates/multisite/admin (demomaster@cmsgears.com, test#123)
+1. Frontend - https://demo.cmsgears.com/templates/multisite (demouser@cmsgears.com, test#123)
+2. Admin - https://demo.cmsgears.com/templates/multisite/admin (demomaster@cmsgears.com, test#123)
 
 Template Installation
 =========================================
