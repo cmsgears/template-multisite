@@ -8,20 +8,20 @@ return [
 	'components' => [
 		'urlManager' => [
 			'class' => 'yii\web\UrlManager',
-			'baseUrl' => 'http://localhost/cmgdemomultisite/frontend/web'
+			'baseUrl' => 'http://localhost/multisitedemo/frontend/web'
 		],
 		// CMG Modules - Core
 		'migration' => [
 			'class' => 'cmsgears\core\common\components\Migration',
 			'cmgPrefix' => 'cmg_',
-			'appPrefix' => 'cmg_',
+			'sitePrefix' => 'site_',
 			'siteName' => 'CMSGears',
-			'siteTitle' => 'CMSGears Demo',
+			'siteTitle' => 'MultiSite Demo',
 			'siteMaster' => 'demomaster',
 			'primaryDomain' => 'cmsgears.com',
-			'defaultSite' => 'http://localhost/cmgdemomultisite/frontend/web',
-			'defaultAdmin' => 'http://localhost/cmgdemomultisite/backend/web',
-			'uploadsUrl' => 'http://localhost/cmgdemomultisite/uploads'
+			'defaultSite' => 'http://localhost/multisitedemo/frontend/web',
+			'defaultAdmin' => 'http://localhost/multisitedemo/backend/web',
+			'uploadsUrl' => 'http://localhost/multisitedemo/uploads'
 		]
 	]
 ];

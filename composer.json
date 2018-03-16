@@ -1,6 +1,6 @@
 {
 	"name": "cmsgears/template-multisite",
-	"description": "The multisite template uses core, cms and dynamic form modules from CMSGears. It needs multisite theme for website and admin theme for admin.",
+	"description": "The multisite template for cms module having default theme set to blog.",
 	"homepage": "https://www.cmsgears.org",
 	"type": "project",
 	"keywords": [
@@ -19,13 +19,13 @@
 	],
 	"require": {
 		"php": ">=7.0.0",
-		"yiisoft/yii2": "2.0.13",
+		"yiisoft/yii2": "2.0.14",
 		"yiisoft/yii2-swiftmailer": "2.1.*",
 		"yiisoft/yii2-twig" : "~2.2.0",
 		"cmsgears/module-core": "dev-1.0.0-alpha",
 		"cmsgears/module-cms": "dev-1.0.0-alpha",
 		"cmsgears/module-forms": "dev-1.0.0-alpha",
-		"cmsgears/module-sns-login": "dev-1.0.0-alpha",
+		"cmsgears/module-sns-connect": "dev-1.0.0-alpha",
 		"cmsgears/module-newsletter": "dev-1.0.0-alpha",
 		"cmsgears/module-notify": "dev-1.0.0-alpha",
 		"cmsgears/plugin-file-manager": "dev-1.0.0-alpha",

@@ -1,6 +1,10 @@
 <?php
 
 return [
+	'aliases' => [
+		'@bower' => '@vendor/bower-asset',
+		'@npm'   => '@vendor/npm-asset'
+	],
     'vendorPath' => dirname( dirname( __DIR__ ) ) . '/vendor',
     'components' => [
     	// Yii Components
@@ -52,8 +56,6 @@ return [
         		'owner' => 'cmsgears\core\common\filters\OwnerFilter'
         	],
         	'notifications' => true,
-        	'stats' => false,
-        	'statsTriggers' => false,
         	'siteConfigAll' => true,
 			'multiSite' => true
         ],
@@ -76,7 +78,7 @@ return [
         	]
         ],
         'eventManager' => [
-        	'class' => 'nutriquest\core\common\components\EventManager'
+        	'class' => 'cmsgears\notify\common\components\EventManager'
         ],
 		// CMG Modules - CMS
 		'cms' => [
@@ -98,12 +100,15 @@ return [
 		'formsMailer' => [
 			'class' => 'cmsgears\forms\common\components\Mailer'
 		],
-        // CMG Modules - SNS Login
-        'snsLogin' => [
-        	'class' => 'cmsgears\social\login\common\components\SnsLogin'
+        // CMG Modules - SNS Connect
+        'snsConnect' => [
+        	'class' => 'cmsgears\social\connect\common\components\SnsConnect'
         ],
-        'snsLoginMailer' => [
-        	'class' => 'cmsgears\social\login\common\components\Mailer'
+		'snsConnectMessage' => [
+			'class' => 'cmsgears\social\connect\common\components\MessageSource'
+		],
+        'snsConnectMailer' => [
+        	'class' => 'cmsgears\social\connect\common\components\Mailer'
         ],
 		// CMG Modules - Newsletter
 		'newsletter' => [
