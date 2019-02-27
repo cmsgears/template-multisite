@@ -3,15 +3,15 @@
 return [
 	'yii\web\JqueryAsset' => false,
 	'landing' => [
-		'class' => 'themes\nutriquest\assets\LandingAssets'
+		'class' => 'themes\blog\assets\LandingAssets'
 	],
 	'public' => [
-		'class' => 'themes\nutriquest\assets\PublicAssets'
+		'class' => 'themes\blog\assets\PublicAssets'
 	],
 	'blog' => [
-		'class' => 'themes\nutriquest\assets\BlogAssets'
+		'class' => 'themes\blog\assets\BlogAssets'
 	],
 	'private' => [
-		'class' => 'themes\nutriquest\assets\PrivateAssets'
+		'class' => 'themes\blog\assets\PrivateAssets'
 	]
 ];

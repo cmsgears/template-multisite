@@ -12,7 +12,7 @@ return [
     'defaultRoute' => 'core/site/index',
 	'bootstrap' => [
 		'log',
-		'core', 'cms', 'forms', 'snsLogin', 'newsletter', 'notify',
+		'core', 'cms', 'forms', 'snsConnect', 'newsletter', 'notify',
 		'foxSlider'
 	],
     'modules' => [
@@ -25,8 +25,8 @@ return [
 		'forms' => [
             'class' => 'cmsgears\forms\admin\Module'
         ],
-        'snslogin' => [
-            'class' => 'cmsgears\social\login\admin\Module'
+        'snsconnect' => [
+            'class' => 'cmsgears\social\connect\admin\Module'
         ],
         'newsletter' => [
             'class' => 'cmsgears\newsletter\admin\Module'
@@ -46,16 +46,16 @@ return [
 			]
 		],
 		'request' => [
-			'csrfParam' => '_csrf-admin',
+			'csrfParam' => '_csrf-cmg-multisite-admin',
 			'parsers' => [
 				'application/json' => 'yii\web\JsonParser'
 			]
 		],
 		'user' => [
-			'identityCookie' => [ 'name' => '_identity-admin', 'httpOnly' => true ]
+			'identityCookie' => [ 'name' => '_identity-cmg-multisite-admin', 'httpOnly' => true ]
 		],
 		'session' => [
-			'name' => 'blog-admin'
+			'name' => 'cmg-multisite-admin'
 		],
 		'errorHandler' => [
 			'errorAction' => 'core/site/error'
@@ -65,40 +65,27 @@ return [
 		],
 		'urlManager' => [
 			'rules' => [
-				// TODO: Check configurations to use sub domain rules
-				// apix request rules - sub directory ----------
-				// Core - 2 levels
-				'<site:\w+>/apix/<controller:[\w\-]+>/<action:[\w\-]+>' => '<site>/core/apix/<controller>/<action>',
+				// api request rules ---------------------------
 				// Generic - 3, 4 and 5 levels - catch all
-				'<site:\w+>/apix/<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<site>/<module>/apix/<controller>/<action>',
-				'<site:\w+>/apix/<module:\w+>/<pcontroller:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<site>/<module>/apix/<pcontroller>/<controller>/<action>',
-				'<site:\w+>/apix/<module:\w+>/<pcontroller1:[\w\-]+>/<pcontroller2:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<site>/<module>/apix/<pcontroller1>/<pcontroller2>/<controller>/<action>',
-				// apix request rules - sub domain -------------
+				'api/<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/api/<controller>/<action>',
+				'api/<module:\w+>/<controller:[\w\-]+>/<pcontroller:[\w\-]+>/<action:[\w\-]+>' => '<module>/api/<controller>/<pcontroller>/<action>',
+				'api/<module:\w+>/<pcontroller1:\w+>/<pcontroller2:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/api/<pcontroller1>/<pcontroller2>/<controller>/<action>',
+				// apix request rules --------------------------
 				// Core - 2 levels
 				'apix/<controller:[\w\-]+>/<action:[\w\-]+>' => 'core/apix/<controller>/<action>',
 				// Generic - 3, 4 and 5 levels - catch all
 				'apix/<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<controller>/<action>',
 				'apix/<module:\w+>/<pcontroller:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<pcontroller>/<controller>/<action>',
 				'apix/<module:\w+>/<pcontroller1:[\w\-]+>/<pcontroller2:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<pcontroller1>/<pcontroller2>/<controller>/<action>',
-				// regular request rules - sub domain ----------
-				// Core Module Pages
-				'<site:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<site:\w+>/core/<controller>/<action>',
-				// Module Pages - 2 and 3 levels - catch all
-				'<site:\w+>/<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<site:\w+>/<module>/<controller>/<action>',
-				'<site:\w+>/<module:\w+>/<pcontroller:[\w\-]+>/<controller:\w+>/<action:[\w\-]+>' => '<site:\w+>/<module>/<pcontroller>/<controller>/<action>',
-				// Standard Pages
-				'<site:\w+>/<action:(login|logout|dashboard|forgot-password|reset-password|activate-account)>' => '<site:\w+>/core/site/<action>',
-				// regular request rules - sub directory -------
-				// Core Module Pages
+				// regular request rules -----------------------
+				// Core - 2 levels
 				'<controller:[\w\-]+>/<action:[\w\-]+>' => 'core/<controller>/<action>',
-				// Module Pages - 2 and 3 levels - catch all
+				// Module Pages - 3, 4 and 5 levels - catch all
 				'<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
 				'<module:\w+>/<pcontroller:[\w\-]+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<pcontroller>/<controller>/<action>',
+				'<module:\w+>/<pcontroller1:[\w\-]+>/<pcontroller2:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/<pcontroller1>/<pcontroller2>/<controller>/<action>',
 				// Standard Pages
-				'<action:(login|logout|dashboard|forgot-password|reset-password|activate-account)>' => 'core/site/<action>',
-				// additional rules ----------------------------
-				'<site:\w+>' => '<site>/cmgcore/site/index',
-	        	'<site:\w+><action:(/)>' => '<site>/cmgcore/site/index'
+				'<action:(login|logout|dashboard|forgot-password|reset-password|activate-account)>' => 'core/site/<action>'
 			]
 		],
         'core' => [

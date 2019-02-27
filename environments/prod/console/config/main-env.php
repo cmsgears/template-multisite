@@ -10,9 +10,9 @@ return [
 		'migration' => [
 			'class' => 'cmsgears\core\common\components\Migration',
 			'cmgPrefix' => 'cmg_',
-			'appPrefix' => 'cmg_',
+			'sitePrefix' => 'site_',
 			'siteName' => 'CMSGears',
-			'siteTitle' => 'CMSGears Demo',
+			'siteTitle' => 'MultiSite Demo',
 			'siteMaster' => 'demomaster',
 			'primaryDomain' => 'cmsgears.com',
 			'defaultSite' => 'https://demo.cmsgears.com/templates/multisite',

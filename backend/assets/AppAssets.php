@@ -1,22 +1,13 @@
 <?php
 namespace backend\assets;
 
-// Yii Imports
-use Yii;
+use yii\web\AssetBundle;
 
-class AppAssets extends \yii\web\AssetBundle {
+class AppAssets extends AssetBundle {
 
 	// Variables ---------------------------------------------------
 
-	// Globals -------------------------------
-
-	// Constants --------------
-
-	// Public -----------------
-
-	// Protected --------------
-
-	// Variables -----------------------------
+	// Globals ----------------
 
 	// Public -----------------
 
@@ -35,14 +26,12 @@ class AppAssets extends \yii\web\AssetBundle {
 
 	// Load dependencies first
 	public $depends = [
-		//'yii\web\YiiAsset'
+		//'cmsgears\core\common\assets\YiiAsset'
 	];
 
 	// Protected --------------
 
 	// Private ----------------
-
-	// Traits ------------------------------------------------------
 
 	// Constructor and Initialisation ------------------------------
 
