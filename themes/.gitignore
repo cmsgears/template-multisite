@@ -1,0 +1,18 @@
+# Keep CSS and JS vendors
+!admin/resources/scripts/vendor/
+!admin/resources/styles/vendor/
+!blog/resources/scripts/vendor/
+!blog/resources/styles/vendor/
+!t24x7/resources/scripts/vendor/
+!t24x7/resources/styles/vendor/
+
+# Ignore sass cache files
+deploy/admin/.sass-cache/
+deploy/admin/node_modules/
+deploy/admin/package-lock.json
+deploy/blog/.sass-cache/
+deploy/blog/node_modules/
+deploy/blog/package-lock.json
+deploy/t24x7/.sass-cache/
+deploy/t24x7/node_modules/
+deploy/t24x7/package-lock.json

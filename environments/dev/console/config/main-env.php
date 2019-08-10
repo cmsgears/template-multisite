@@ -14,11 +14,11 @@ return [
 		'migration' => [
 			'class' => 'cmsgears\core\common\components\Migration',
 			'cmgPrefix' => 'cmg_',
-			'sitePrefix' => 'site_',
-			'siteName' => 'CMSGears',
-			'siteTitle' => 'MultiSite Demo',
+			'sitePrefix' => 'mls_',
+			'siteName' => 'Multisite',
+			'siteTitle' => 'Multisite Demo',
 			'siteMaster' => 'demomaster',
-			'primaryDomain' => 'cmsgears.com',
+			'primaryDomain' => 'dev.vcdevhub.com',
 			'defaultSite' => 'http://localhost/multisitedemo/frontend/web',
 			'defaultAdmin' => 'http://localhost/multisitedemo/backend/web',
 			'uploadsUrl' => 'http://localhost/multisitedemo/uploads'

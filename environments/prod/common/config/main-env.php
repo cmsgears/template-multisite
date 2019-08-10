@@ -6,7 +6,7 @@ return [
 			'class' => 'yii\db\Connection',
 			'dsn' => 'mysql:host=localhost;dbname=multisitedemo',
 			'username' => 'multisitedemo',
-			'password' => 'Demo#MultiSite*6',
+			'password' => 'Lva#Mls4E*6',
 			'charset' => 'utf8'
 		],
 		'mailer' => [

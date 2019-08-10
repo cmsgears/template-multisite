@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'Oxygen Light';
+    src: url('../fonts/oxygen/oxygen-light.eot');
+    src: url('../fonts/oxygen/oxygen-light.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/oxygen/oxygen-light.woff') format('woff'),
+         url('../fonts/oxygen/oxygen-light.ttf') format('truetype'),
+         url('../fonts/oxygen/oxygen-light.svg#robotolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Kontrapunkt Light';
+    src: url('../fonts/kontrapunkt/kontrapunkt-light.eot');
+    src: url('../fonts/kontrapunkt/kontrapunkt-light.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/kontrapunkt/kontrapunkt-light.woff') format('woff'),
+         url('../fonts/kontrapunkt/kontrapunkt-light.ttf') format('truetype'),
+         url('../fonts/kontrapunkt/kontrapunkt-light.svg#robotolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
