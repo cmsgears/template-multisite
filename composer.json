@@ -1,43 +1,51 @@
 {
-	"name": "cmsgears/template-multisite",
-	"description": "The multisite template for cms module having default theme set to blog.",
-	"homepage": "https://www.cmsgears.org",
+	"name": "tutorials24x7/website",
+	"description": "The main site of tutorials24x7.com.",
+	"homepage": "https://www.tutorials24x7.com",
 	"type": "project",
 	"keywords": [
-		"yii", "yii2", "yii 2", "cmsgears", "template", "multisite"
+		"yii", "yii2", "yii 2", "cmsgears", "template", "tutorials24x7"
 	],
-	"license": "GPL-3.0-or-later",
+	"license": "private",
 	"support": {
-		"forum": "https://forum.cmsgears.org"
+		"resources" : "https://www.tutorials24x7.com"
 	},
 	"minimum-stability": "stable",
 	"repositories": [
 		{
 			"type": "composer",
 			"url": "https://asset-packagist.org"
+		},
+		{
+			"type": "vcs",
+			"url": "https://repo1.vcdevhub.com/cmsgears/plugin-breeze-vc.git"
 		}
 	],
 	"require": {
 		"php": ">=7.0.0",
-		"yiisoft/yii2": "2.0.14",
+		"yiisoft/yii2": "2.0.23",
 		"yiisoft/yii2-swiftmailer": "2.1.*",
-		"yiisoft/yii2-twig" : "~2.2.0",
+		"yiisoft/yii2-twig": "2.2.*",
 		"cmsgears/module-core": "dev-1.0.0-alpha",
 		"cmsgears/module-cms": "dev-1.0.0-alpha",
 		"cmsgears/module-forms": "dev-1.0.0-alpha",
 		"cmsgears/module-newsletter": "dev-1.0.0-alpha",
 		"cmsgears/module-notify": "dev-1.0.0-alpha",
 		"cmsgears/module-sns-connect": "dev-1.0.0-alpha",
+		"cmsgears/plugin-assets" : "dev-1.0.0-alpha",
+		"cmsgears/plugin-breeze-templates": "dev-1.0.0-alpha",
+		"cmsgears/plugin-breeze-vc": "dev-1.0.0-alpha",
 		"cmsgears/plugin-file-manager": "dev-1.0.0-alpha",
 		"cmsgears/plugin-social-meta": "dev-1.0.0-alpha",
 		"cmsgears/plugin-icon-picker": "dev-1.0.0-alpha",
-		"cmsgears/widget-text": "dev-1.0.0-alpha",
+		"cmsgears/plugin-google-api" : "dev-1.0.0-alpha",
+		"cmsgears/plugin-google-analytics": "dev-1.0.0-alpha",
 		"cmsgears/widget-cleditor": "dev-1.0.0-alpha",
+		"cmsgears/widget-tinymce": "dev-1.0.0-alpha",
 		"cmsgears/widget-comment": "dev-1.0.0-alpha",
 		"cmsgears/widget-block": "dev-1.0.0-alpha",
-		"cmsgears/widget-block-dynamic": "dev-1.0.0-alpha",
 		"cmsgears/widget-nav": "dev-1.0.0-alpha",
-		"cmsgears/widget-nav-dynamic": "dev-1.0.0-alpha",
+		"cmsgears/widget-elements": "dev-1.0.0-alpha",
 		"cmsgears/widget-login": "dev-1.0.0-alpha",
 		"cmsgears/widget-gallery": "dev-1.0.0-alpha",
 		"cmsgears/widget-newsletter": "dev-1.0.0-alpha",
@@ -45,28 +53,39 @@
 		"cmsgears/widget-form-ajax": "dev-1.0.0-alpha",
 		"cmsgears/widget-tag": "dev-1.0.0-alpha",
 		"cmsgears/widget-category": "dev-1.0.0-alpha",
-		"cmsgears/widget-blog": "dev-1.0.0-alpha",
-		"cmsgears/widget-social-share": "dev-1.0.0-alpha",
-		"cmsgears/widget-social-counts": "dev-1.0.0-alpha",
+		"cmsgears/widget-club": "dev-1.0.0-alpha",
+		"cmsgears/widget-social": "dev-1.0.0-alpha",
 		"cmsgears/widget-popup": "dev-1.0.0-alpha",
 		"cmsgears/widget-grid": "dev-1.0.0-alpha",
 		"foxslider/cmg-plugin": "dev-1.0.0-alpha",
+		"bower-asset/conditionizr": "4.5.*",
 		"bower-asset/jquery-ui": "1.12.*",
 		"bower-asset/handlebars": "4.0.*",
 		"bower-asset/imagesloaded": "4.1.*",
 		"bower-asset/malihu-custom-scrollbar-plugin": "3.1.*",
+		"bower-asset/nouislider": "11.1.*",
+		"bower-asset/progressbar.js": "1.0.*",
+		"bower-asset/animate.css": "3.1.*",
 		"bower-asset/fontawesome": "5.0.*",
 		"bower-asset/chart.js": "2.7.*",
 		"bower-asset/moment": "2.22.*",
-		"bower-asset/cmt-ui" : "dev-1.0.0-alpha",
-		"bower-asset/cmt-js" : "dev-1.0.0-alpha",
-		"bower-asset/cmt-iconlib" : "dev-1.0.0-alpha"
+		"bower-asset/fullcalendar": "3.9.*",
+		"bower-asset/datetimepicker": "2.5.*",
+		"bower-asset/intl-tel-input": "15.0.*",
+		"bower-asset/cmt-breeze" : "dev-1.0.0-alpha",
+		"bower-asset/cmt-breeze-icons" : "dev-1.0.0-alpha",
+		"bower-asset/cmt-velocity" : "dev-1.0.0-alpha",
+		"bower-asset/cmt-velocity-apps" : "dev-1.0.0-alpha",
+		"bower-asset/cmt-velocity-breeze" : "dev-1.0.0-alpha"
 	},
 	"require-dev": {
-		"codeception/base": "^2.2.3",
-		"codeception/verify": "~0.3.1",
+        "codeception/base": "^2.4.0",
+        "codeception/specify": "~1.0.0",
+        "codeception/verify": "~1.0.0",
+		"phpunit/phpunit": "~6.5.5",
 		"yiisoft/yii2-debug": "2.0.*",
 		"yiisoft/yii2-gii": "2.0.*",
-		"yiisoft/yii2-faker": "2.0.*"
+		"yiisoft/yii2-faker": "2.0.*",
+		"symfony/browser-kit": ">=2.7 <=4.2.4"
 	}
 }

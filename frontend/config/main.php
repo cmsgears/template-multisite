@@ -7,72 +7,68 @@ $params = yii\helpers\ArrayHelper::merge(
 
 return [
 	'id' => 'app-site',
-	'name' => 'MultiSite Demo',
+	'name' => 'Multisite',
 	'version' => '1.0.0',
 	'basePath' => dirname( __DIR__ ),
 	'controllerNamespace' => 'frontend\controllers',
-	'defaultRoute' => 'core/site/index',
-	'catchAll' => null,
+	'defaultRoute' => 'cms/page/single',
+	//'catchAll' => [ 'core/site/maintenance' ],
 	'bootstrap' => [
 		'log',
-		'core', 'cms', 'forms', 'snsConnect', 'newsletter', 'notify',
-		'foxSlider'
+		'core', 'coreFactory', 'forms', 'formsFactory', 'cms', 'cmsFactory', 'breeze',
+		'newsletter', 'newsletterFactory', 'notify', 'notifyFactory', 'snsConnect', 'snsConnectFactory',
+		'foxSlider',
+		'mlsCoreFactory'
 	],
 	'modules' => [
 		'core' => [
-			'class' => 'cmsgears\core\frontend\Module'
-		],
-		'cms' => [
-			'class' => 'cmsgears\cms\frontend\Module'
+			'class' => 'modules\core\frontend\Module'
 		],
 		'forms' => [
 			'class' => 'cmsgears\forms\frontend\Module'
 		],
-		'snsconnect' => [
-			'class' => 'cmsgears\social\connect\frontend\Module'
+		'cms' => [
+			'class' => 'cmsgears\cms\frontend\Module'
 		],
 		'newsletter' => [
 			'class' => 'cmsgears\newsletter\frontend\Module'
 		],
 		'notify' => [
 			'class' => 'cmsgears\notify\frontend\Module'
+		],
+		'snsconnect' => [
+			'class' => 'cmsgears\social\connect\frontend\Module'
 		]
 	],
 	'components' => [
 		'view' => [
 			'theme' => [
-				'class' => 'themes\multisite\Theme',
+				'class' => 'themes\t24x7\Theme',
 				'childs' => [
 					// Child themes to override theme css and to add additional js
 				]
 			]
 		],
 		'request' => [
-			'csrfParam' => '_csrf-cmg-multisite-site',
+			'csrfParam' => '_csrf-mls-site',
 			'parsers' => [
 				'application/json' => 'yii\web\JsonParser'
 			]
 		],
 		'user' => [
-			'identityCookie' => [ 'name' => '_identity-cmg-multisite-site', 'httpOnly' => true ]
+			'identityCookie' => [ 'name' => '_identity-mls-site', 'httpOnly' => true ]
 		],
 		'session' => [
-			'name' => 'cmg-multisite-site'
+			'name' => 'mls-site'
 		],
 		'errorHandler' => [
 			'errorAction' => 'core/site/error'
 		],
 		'assetManager' => [
-			'bundles' => require( __DIR__ . '/' . ( YII_ENV_PROD ? 'assets-prod.php' : 'assets-dev.php' ) )
+			'bundles' => require( dirname( dirname( __DIR__ ) ) . '/themes/assets/t24x7/' . ( YII_ENV_PROD ? 'prod.php' : 'dev.php' ) )
 		],
 		'urlManager' => [
 			'rules' => [
-				// TODO: Use Group Rule for api and apix prefix
-				// api request rules ---------------------------
-				// Generic - 3, 4 and 5 levels - catch all
-				'api/<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/api/<controller>/<action>',
-				'api/<module:\w+>/<controller:[\w\-]+>/<pcontroller:[\w\-]+>/<action:[\w\-]+>' => '<module>/api/<controller>/<pcontroller>/<action>',
-				'api/<module:\w+>/<pcontroller1:\w+>/<pcontroller2:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/api/<pcontroller1>/<pcontroller2>/<controller>/<action>',
 				// apix request rules --------------------------
 				// Forms - site forms
 				'apix/form/<slug:[\w\-]+>' => 'forms/apix/form/submit',
@@ -83,28 +79,28 @@ return [
 				'apix/<module:\w+>/<pcontroller:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<pcontroller>/<controller>/<action>',
 				'apix/<module:\w+>/<pcontroller1:[\w\-]+>/<pcontroller2:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<pcontroller1>/<pcontroller2>/<controller>/<action>',
 				// regular request rules -----------------------
-				// SNS Connect
-				'sns/<controller:\w+>/<action:[\w\-]+>' => 'snsconnect/<controller>/<action>',
-				// TODO: Use Group Rule for blog
+				// CMS Pages
+				'page/search' => 'cms/page/search',
+				// Articles - Public - search and single
+				'article/search' => 'cms/article/search',
+				'article/<slug:[\w\-]+>' => 'cms/article/single',
 				// Blog Posts - Public - search, category, tag and single
 				'blog/search' => 'cms/post/search',
 				'blog/category/<slug:[\w\-]+>' => 'cms/post/category',
 				'blog/tag/<slug:[\w\-]+>' => 'cms/post/tag',
+				'blog/author/<slug:[\w\-]+>' => 'cms/post/author',
 				'blog/<slug:[\w\-]+>' => 'cms/post/single',
-				// Blog Posts - Private 2 and 3 levels
-				'blog/manage/<action:[\w\-]+>' => 'cms/post/<action>',
-				'blog/<controller:\w+>/<action:[\w\-]+>' => 'cms/post/<controller>/<action>',
-				'blog/<pcontroller:\w+>/<controller:\w+>/<action:[\w\-]+>' => 'cms/post/<pcontroller>/<controller>/<action>',
 				// Forms
-				'form/<slug:[\w\-]+>' => 'forms/form/single',
-				// Core Module Pages
+				'form/<slug:[\w\-]+>' => 'cms/form/single',
+				// Core - 2 levels
 				'<controller:[\w\-]+>/<action:[\w\-]+>' => 'core/<controller>/<action>',
-				// Module Pages - 2 and 3 levels - catch all
+				// Module Pages - 3, 4 and 5 levels - catch all
 				'<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
 				'<module:\w+>/<pcontroller:[\w\-]+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<pcontroller>/<controller>/<action>',
+				'<module:\w+>/<pcontroller1:[\w\-]+>/<pcontroller2:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/<pcontroller1>/<pcontroller2>/<controller>/<action>',
 				// Standard Pages
-				'<action:(home|profile|account|address|settings)>' => 'core/user/<action>',
-				'<action:(login|logout|register|forgot-password|reset-password|activate-account|confirm-account)>' => 'core/site/<action>',
+				'<action:(home|profile|calendar|account|address|settings)>' => 'core/user/<action>',
+				'<action:(login|logout|register|forgot-password|reset-password|reset-password-otp|activate-account|confirm-account|feedback|testimonial)>' => 'core/site/<action>',
 				// CMS Pages
 				'<slug:[\w\-]+>' => 'cms/page/single'
 			]
