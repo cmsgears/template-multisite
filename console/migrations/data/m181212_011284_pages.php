@@ -188,7 +188,7 @@ class m181212_011284_pages extends \cmsgears\core\common\base\Migration {
 
 		$content = [
 			'Multisite',
-			null, null, null, null, null, null, null, null, null,
+			null, null, null, null, null, null, null, null, null, null,
 			'Multisite', 'Multisite',
 			null, null, null, null, null, null, null, null
 		];
